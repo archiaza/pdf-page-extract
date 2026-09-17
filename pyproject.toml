@@ -1,0 +1,38 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pagextract"
+version = "0.1.0"
+description = "Text extraction from PDF and DOCX that keeps track of where the text came from"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Azamat Isenov" }]
+keywords = ["pdf", "docx", "text-extraction", "document-parsing", "page-numbers"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Text Processing",
+]
+dependencies = [
+    "pypdf>=4.0.0",
+    "python-docx>=1.1.0",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8.0.0", "reportlab>=4.0.0"]
+
+[project.scripts]
+pagextract = "pagextract.cli:main"
+
+[project.urls]
+Repository = "https://github.com/archiaza/pdf-page-extract"
+
+[tool.setuptools.packages.find]
+include = ["pagextract*"]
